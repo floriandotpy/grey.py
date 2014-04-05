@@ -1,7 +1,7 @@
 #!/usr/local/bin/python
 
 usage = """
-    Reads css input and prints the CSS as a greyscale version
+    Reads an input CSS file and prints the CSS as a greyscale version
 
     Usage:
     chmod +x grey.py
@@ -45,11 +45,9 @@ def greyscale(css):
 
 if __name__ == "__main__":
 
-    if len(sys.argv) == 1:
-        print usage
-        exit()
+    if len(sys.argv) <= 1:
+        exit(usage)
 
     with open(sys.argv[1]) as f:
         css = f.read()
-
-    sys.stdout.write(greyscale(css))
+        print(greyscale(css))
